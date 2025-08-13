@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     private let helper = Helper()
     private let textLabel = UILabel()
     private let imageView = UIImageView()
+    private let imageContainerView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,10 +20,11 @@ class ViewController: UIViewController {
         updateNumbers()
         
         setupLabel()
+        setupImageContainerView()
         setupImgae()
         setupView()
         view.addSubview(textLabel)
-        view.addSubview(imageView)
+        view.addSubview(imageContainerView)
     }
     
     private func setupLabel() {
@@ -36,13 +38,22 @@ class ViewController: UIViewController {
         textLabel.frame = CGRect(x: 30, y: 30, width: 100, height: 50)
     }
     
+    private func setupImageContainerView() {
+        imageContainerView.frame =  CGRect(x: 30, y: 130, width: 100, height: 200)
+        imageContainerView.layer.shadowColor = UIColor.black.cgColor
+        imageContainerView.layer.shadowOffset = CGSize(width: 15, height: 15)
+        imageContainerView.layer.shadowOpacity = 1
+        imageContainerView.layer.shadowRadius = 10
+        imageContainerView.addSubview(imageView)
+    }
+    
     private func setupImgae() {
         imageView.image = UIImage(named: "priroda")
-        imageView.frame = CGRect(x: 30, y: 130, width: 100, height: 200)
+        imageView.frame = imageContainerView.bounds
         imageView.layer.cornerRadius = 20
         imageView.clipsToBounds = true
-        
     }
+    
     private func setupView() {
         let gradient = CAGradientLayer()
         gradient.frame = view.bounds
@@ -50,7 +61,7 @@ class ViewController: UIViewController {
         gradient.startPoint = CGPoint(x: 0, y: 0)
         gradient.endPoint = CGPoint(x: 1, y: 1)
         
-        view.layer.insertSublayer(gradient, at: 0)
+        view.layer.insertSublayer(gradient, at: 1)
     }
     
     private func updateNumbers() {
