@@ -44,7 +44,6 @@ class ViewController: UIViewController {
     }
     
     private func setupImageContainerView() {
-        imageContainerView.frame =  CGRect(x: 100, y: 310, width: 200, height: 180)
         imageContainerView.layer.shadowColor = UIColor.black.cgColor
         imageContainerView.layer.shadowOffset = CGSize(width: 15, height: 15)
         imageContainerView.layer.shadowOpacity = 1
@@ -71,10 +70,20 @@ class ViewController: UIViewController {
     
     private func setupLayout() {
         textLabel.translatesAutoresizingMaskIntoConstraints = false
+        imageContainerView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             textLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-            textLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            textLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            imageContainerView.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: 150),
+            imageContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            imageContainerView.heightAnchor.constraint(equalToConstant: 200),
+            imageContainerView.widthAnchor.constraint(equalToConstant: 200),
+            imageView.topAnchor.constraint(equalTo: imageContainerView.topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: imageContainerView.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: imageContainerView.trailingAnchor),
+            imageView.bottomAnchor.constraint(equalTo: imageContainerView.bottomAnchor)
         ])
     }
     
