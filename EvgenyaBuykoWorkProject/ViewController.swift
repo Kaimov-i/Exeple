@@ -35,11 +35,11 @@ class ViewController: UIViewController {
             .font: UIFont.systemFont(ofSize: 30, weight: .bold),
             .foregroundColor: UIColor.red], range: NSRange(location: 0, length: 0))
         textLabel.attributedText = atributeString
-        textLabel.frame = CGRect(x: 30, y: 30, width: 100, height: 50)
+        textLabel.frame = CGRect(x: 100, y: 120, width: 200, height: 50)
     }
     
     private func setupImageContainerView() {
-        imageContainerView.frame =  CGRect(x: 30, y: 130, width: 100, height: 200)
+        imageContainerView.frame =  CGRect(x: 100, y: 310, width: 200, height: 180)
         imageContainerView.layer.shadowColor = UIColor.black.cgColor
         imageContainerView.layer.shadowOffset = CGSize(width: 15, height: 15)
         imageContainerView.layer.shadowOpacity = 1
