@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     private let textLabel = UILabel()
     private let imageView = UIImageView()
     private let imageContainerView = UIView()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,10 @@ class ViewController: UIViewController {
         setupView()
         view.addSubview(textLabel)
         view.addSubview(imageContainerView)
+        setupLayout()
+        
+        
+        
     }
     
     private func setupLabel() {
@@ -33,9 +38,9 @@ class ViewController: UIViewController {
         let atributeString = NSMutableAttributedString(string: firstNumber.formatted())
         atributeString.addAttributes([
             .font: UIFont.systemFont(ofSize: 30, weight: .bold),
-            .foregroundColor: UIColor.red], range: NSRange(location: 0, length: 0))
+            .foregroundColor: UIColor.red],
+                                     range: NSRange(location: 0, length: 1))
         textLabel.attributedText = atributeString
-        textLabel.frame = CGRect(x: 100, y: 120, width: 200, height: 50)
     }
     
     private func setupImageContainerView() {
@@ -64,12 +69,17 @@ class ViewController: UIViewController {
         view.layer.insertSublayer(gradient, at: 1)
     }
     
+    private func setupLayout() {
+        textLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            textLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            textLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+    }
+    
     private func updateNumbers() {
         helper.addNumer(Int.random(in: 1...10))
-        
-        for number in helper.getNumbers() {
-            print(number)
-        }
     }
 }
 
