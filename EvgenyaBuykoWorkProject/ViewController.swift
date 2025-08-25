@@ -10,9 +10,11 @@ import UIKit
 class ViewController: UIViewController {
     
     private let helper = Helper()
+    
     private let textLabel = UILabel()
     private let imageView = UIImageView()
     private let imageContainerView = UIView()
+    private let stackView = UIStackView()
 
     
     override func viewDidLoad() {
@@ -24,8 +26,8 @@ class ViewController: UIViewController {
         setupImageContainerView()
         setupImgae()
         setupView()
-        view.addSubview(textLabel)
-        view.addSubview(imageContainerView)
+        setupStackView()
+        view.addSubview(stackView)
         setupLayout()
         
         
@@ -33,14 +35,11 @@ class ViewController: UIViewController {
     }
     
     private func setupLabel() {
-        let firstNumber = helper.getNumbers().first ?? 0
-        
-        let atributeString = NSMutableAttributedString(string: firstNumber.formatted())
-        atributeString.addAttributes([
-            .font: UIFont.systemFont(ofSize: 30, weight: .bold),
-            .foregroundColor: UIColor.red],
-                                     range: NSRange(location: 0, length: 1))
-        textLabel.attributedText = atributeString
+        let firstNumber = helper.getNumbers().first
+        textLabel.text = "\(firstNumber ?? 0)"
+        textLabel.font = .systemFont(ofSize: 30, weight: .bold)
+        textLabel.textAlignment = .center
+        textLabel.textColor = .red
     }
     
     private func setupImageContainerView() {
@@ -69,22 +68,32 @@ class ViewController: UIViewController {
     }
     
     private func setupLayout() {
-        textLabel.translatesAutoresizingMaskIntoConstraints = false
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         imageContainerView.translatesAutoresizingMaskIntoConstraints = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            textLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-            textLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imageContainerView.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: 150),
-            imageContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imageContainerView.heightAnchor.constraint(equalToConstant: 200),
-            imageContainerView.widthAnchor.constraint(equalToConstant: 200),
+           
+            stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stackView.widthAnchor.constraint(equalToConstant: 200),
+            stackView.heightAnchor.constraint(equalToConstant: 400),
+          
             imageView.topAnchor.constraint(equalTo: imageContainerView.topAnchor),
             imageView.leadingAnchor.constraint(equalTo: imageContainerView.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: imageContainerView.trailingAnchor),
             imageView.bottomAnchor.constraint(equalTo: imageContainerView.bottomAnchor)
         ])
+    }
+    
+    private func setupStackView() {
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.alignment = .fill
+        stackView.spacing = 10
+        
+        stackView.addArrangedSubview(textLabel)
+        stackView.addArrangedSubview(imageContainerView)
     }
     
     private func updateNumbers() {
