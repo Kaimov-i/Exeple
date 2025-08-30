@@ -12,17 +12,18 @@ class ViewController: UIViewController {
     private let helper = Helper()
     
     private let textLabel = UILabel()
-    private let shadowImage = ShadowView()
+    private let shadowImage = ShadowView(imageName: "priroda")
+    private let seconShadowImage = ShadowView(imageName: "road2")
     private let stackView = UIStackView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateNumbers()
         
+        setupView()
         setupLabel()
         setupStackView()
         view.addSubview(stackView)
-        setupView()
         setupLayout()
     }
     
@@ -50,8 +51,8 @@ class ViewController: UIViewController {
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stackView.widthAnchor.constraint(equalToConstant: 200),
-            stackView.heightAnchor.constraint(equalToConstant: 600),
+            stackView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
+            stackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.8)
         ])
     }
     
@@ -63,6 +64,7 @@ class ViewController: UIViewController {
         
         stackView.addArrangedSubview(textLabel)
         stackView.addArrangedSubview(shadowImage)
+        stackView.addArrangedSubview(seconShadowImage)
     }
     
     private func updateNumbers() {

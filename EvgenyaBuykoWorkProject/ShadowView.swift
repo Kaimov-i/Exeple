@@ -10,10 +10,10 @@ import UIKit
 class ShadowView: UIView {
     private let imageView = UIImageView()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(imageName: String) {
+        super.init(frame: .zero)
         setupView()
-        setupImgaeView()
+        setupImgaeView(imageName)
         setupLayout()
     }
     
@@ -23,9 +23,9 @@ class ShadowView: UIView {
     }
     
     
-    private func setupImgaeView() {
-        imageView.image = UIImage(named: "road2")
-        imageView.contentMode = .scaleAspectFill
+    private func setupImgaeView(_ imageName: String) {
+        imageView.image = UIImage(named: imageName)
+        imageView.contentMode = .scaleToFill
         imageView.layer.cornerRadius = 20
         imageView.clipsToBounds = true
         
@@ -48,7 +48,7 @@ class ShadowView: UIView {
             imageView.topAnchor.constraint(equalTo: topAnchor),
             imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: leadingAnchor)
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
     
