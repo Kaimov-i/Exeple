@@ -12,6 +12,7 @@
 		89E9B47E2E63622200DD8550 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9B4752E63622200DD8550 /* ShadowView.swift */; };
 		89E9B47F2E63622200DD8550 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9B4762E63622200DD8550 /* ViewController.swift */; };
 		89E9B4982E642FAE00DD8550 /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9B4972E642FAE00DD8550 /* UIView+Gradient.swift */; };
+		89E9B4FB2E6498B500DD8550 /* CostomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9B4FA2E6498B500DD8550 /* CostomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		89E9B4762E63622200DD8550 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		89E9B4772E63622200DD8550 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89E9B4972E642FAE00DD8550 /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
+		89E9B4FA2E6498B500DD8550 /* CostomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				89E9B4752E63622200DD8550 /* ShadowView.swift */,
+				89E9B4FA2E6498B500DD8550 /* CostomButton.swift */,
 			);
 			path = CostomElements;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89E9B4FB2E6498B500DD8550 /* CostomButton.swift in Sources */,
 				89E9B47C2E63622200DD8550 /* Helper.swift in Sources */,
 				89E9B47E2E63622200DD8550 /* ShadowView.swift in Sources */,
 				89E9B4982E642FAE00DD8550 /* UIView+Gradient.swift in Sources */,

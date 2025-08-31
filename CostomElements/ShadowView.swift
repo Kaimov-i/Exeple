@@ -49,6 +49,10 @@ class ShadowView: UIView {
         layer.shadowPath = shadowPath.cgPath
     }
     
+    func updateImage(_ imageName: String) {
+        imageView.image = UIImage(named: imageName )
+    }
+    
     private func setupLayout() {
         
         imageView.translatesAutoresizingMaskIntoConstraints = false

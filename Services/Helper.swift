@@ -17,4 +17,8 @@ class Helper {
     func getNumbers() -> [Int] {
         numbers
     }
+    
+    func getRanomNumber() -> Int {
+        numbers.randomElement() ?? 0
+    }
 }
