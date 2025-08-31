@@ -38,6 +38,15 @@ class ShadowView: UIView {
         layer.shadowOpacity = 0.7
         layer.shadowOffset = CGSize(width: 5, height: 5)
         layer.shadowRadius = 10
+        
+       
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        let shadowPath = UIBezierPath(rect: bounds)
+        layer.shadowPath = shadowPath.cgPath
     }
     
     private func setupLayout() {
